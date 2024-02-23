@@ -51,7 +51,7 @@ fun WelcomeScreen(getStarted:() -> Unit){
             primaryButton("Get Started", modifier = Modifier
                 .fillMaxWidth()
                 , onClick = {
-                    getStarted
+                    getStarted.invoke()
             })
 
         }
@@ -61,6 +61,5 @@ fun WelcomeScreen(getStarted:() -> Unit){
 @Preview
 @Composable
 fun  WelcomeScreenPreview(){
-    WelcomeScreen()
 }
 

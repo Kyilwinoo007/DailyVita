@@ -36,7 +36,7 @@ import com.bmruby.dailyvita.ui.theme.Purple40
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DietScreen(){
+fun DietScreen(back:() -> Unit,next:() -> Unit){
     Scaffold(modifier = Modifier
         .fillMaxSize()
         .padding(20.dp)
@@ -45,11 +45,10 @@ fun DietScreen(){
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
-            Spacer(modifier = Modifier.height(20.dp))
             Row {
                 Text(text = "Select the diet you follow.",
                     fontFamily = FontFamily.Default,
-                    fontSize = 14.sp, fontWeight = FontWeight.Bold)
+                    fontSize = 16.sp, fontWeight = FontWeight.Bold)
                 Text(text = "*",
                     color = Color.Red,
                     fontFamily = FontFamily.Default,
@@ -77,12 +76,12 @@ fun DietScreen(){
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 secondaryButton("Back", modifier = Modifier.wrapContentWidth(), onClick ={
-
+                    back.invoke()
                 })
                 primaryButton("Next", modifier = Modifier
                     .wrapContentWidth()
                     , onClick = {
-
+                        next.invoke()
                     })
             }
 
@@ -118,5 +117,4 @@ fun DietItem(diet: Diet) {
 @Preview
 @Composable
 fun DietScreenPreview(){
-    DietScreen()
 }

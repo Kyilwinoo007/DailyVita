@@ -37,15 +37,28 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                         composable(route = MyGraph.HEALTH){
-                            HealthConcern{
+                            HealthConcern(next = {
                                 controller.navigate(MyGraph.DIET)
-                            }
+
+                            }, back = {
+                                controller.popBackStack()
+                            })
                         }
                         composable(route = MyGraph.DIET){
-                            DietScreen()
+                            DietScreen(next = {
+                                controller.navigate(MyGraph.ALLERGIC)
+
+                            }, back = {
+                                controller.popBackStack()
+                            })
                         }
                         composable(route = MyGraph.ALLERGIC){
-                            AllergicScreen()
+                            AllergicScreen(next = {
+                                controller.navigate(MyGraph.FINAL)
+
+                            }, back = {
+                                controller.popBackStack()
+                            })
                         }
                         composable(route = MyGraph.FINAL){
                             FinalScreen()

@@ -38,7 +38,7 @@ import com.bmruby.dailyvita.ui.theme.Purple40
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AllergicScreen(){
+fun AllergicScreen(next:() -> Unit,back : () -> Unit){
     Scaffold(modifier = Modifier
         .fillMaxSize()
         .padding(20.dp)
@@ -80,12 +80,12 @@ fun AllergicScreen(){
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 secondaryButton("Back", modifier = Modifier.wrapContentWidth(), onClick ={
-
+                    back.invoke()
                 })
                 primaryButton("Next", modifier = Modifier
                     .wrapContentWidth()
                     , onClick = {
-
+                        next.invoke()
                     })
             }
 
@@ -97,5 +97,4 @@ fun AllergicScreen(){
 @Preview
 @Composable
 fun AllergicScreenPreview(){
-    AllergicScreen()
 }

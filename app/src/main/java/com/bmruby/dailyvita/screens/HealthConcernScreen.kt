@@ -43,7 +43,7 @@ import com.bmruby.dailyvita.ui.theme.Purple40
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HealthConcern(){
+fun HealthConcern(next: () -> Unit){
     Scaffold(modifier = Modifier
         .fillMaxSize()
         .padding(20.dp)
@@ -92,7 +92,7 @@ fun HealthConcern(){
                 primaryButton("Next", modifier = Modifier
                     .wrapContentWidth()
                     , onClick = {
-
+                        next
                     })
             }
 
@@ -130,5 +130,4 @@ fun HealthConcernItem(data: Item) {
 @Preview
 @Composable
 fun HealthConcernPreview(){
-    HealthConcern()
 }

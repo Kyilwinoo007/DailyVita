@@ -28,7 +28,7 @@ import com.bmruby.dailyvita.ui.theme.Purple40
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun WelcomeScreen(){
+fun WelcomeScreen(getStarted:() -> Unit){
     Scaffold(modifier = Modifier
         .fillMaxSize()
         .padding(20.dp)
@@ -51,7 +51,7 @@ fun WelcomeScreen(){
             primaryButton("Get Started", modifier = Modifier
                 .fillMaxWidth()
                 , onClick = {
-
+                    getStarted
             })
 
         }
